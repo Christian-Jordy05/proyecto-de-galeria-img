@@ -1,0 +1,98 @@
+.fondo{
+    background-image: url(img1/fondo.gif);
+    background-repeat: no-repeat;
+    height: 450px;
+    width: 900px;
+    
+
+}
+
+.conteinerIniciarSesion{
+    height: 500px;
+    width: 500px;
+    backdrop-filter: blur(1.5px);
+    margin-left: 350px;
+    margin-top: 50px;
+    border: white solid 0.1px;
+    box-shadow: 0 0 10px white , inset 0 0 10px white;
+   
+}
+.tex1{
+    margin-left: 150px;
+    display: block;
+    position: absolute;
+    margin-top: 35px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+.tex12{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    color: rgb(38, 38, 38);
+    opacity: .5;
+   
+}
+
+
+.input{
+    height: 100px;
+    width: 100px;
+    margin-left: 120px;
+    display: grid;
+    grid-template-rows:50px 50px ;
+}
+.tmñInput{
+    width: 230px;
+    height: 25px;
+    background-color: transparent;
+    
+    outline: none;
+   
+}
+
+input::placeholder{
+    color: rgb(55, 41, 41);
+    font-family: Impact;
+    font-size: 15px;
+}
+
+.button{
+    margin-left: 120px;
+    margin-top: 45px;
+}
+
+.TamaDeButton{
+    height: 50px;
+    width: 240px;
+    border-radius: 20px 20px;
+    background-color: greenyellow;
+    font-size: 20px;
+}
+
+.AjusteParrafo{
+    margin-left: 130px;
+}
+
+.parrafo{
+    font-size: 14px;
+    
+    width: 229px;
+}
+
+.BotonDeRegitrarse{
+    font-size: 20px;
+    margin-left: 160px;
+    margin-top: 10px;
+    
+    height: 20px;
+    width: 70px;
+    
+    background-color: transparent;
+    border: transparent;
+    color: #0f0;
+    font-family: 'Times New Roman';
+    text-decoration: underline #0f0 solid 3px;
+    
+}
