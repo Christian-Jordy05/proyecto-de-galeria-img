@@ -27,17 +27,33 @@
 
 
 
+<br>
+        <div class="AjusteParrafo">
+            <p class="parrafo" >¿Aun no tienes cuenta?, toca el boton de registrarse para crear una cuenta</p>
+        </div>
 
-        <div class="AjusteParrafo"><p class="parrafo">¿Aun no tienes cuenta?, toca el boton  <br>  de registrarse para crear una cuenta</p></div>
 
 
 
 
-        <button class="BotonDeRegitrarse" onclick="window.modal1.showModal();">REGISTRARSE</button>
-        <dialog id="modal1">
-            <h2>Este es el título de mi ventana modal</h2>
-            <p>Este es un texto de ejemplo dentro de una ventana modal</p>
-            <button onclick="window.modal1.close();">Cerrar</button>
+        <button class="BotonDeRegitrarse"  onclick="window.modal1.showModal();">Registrarse</button>
+    <dialog id="modal1">
+        <section>
+            <h2>registro</h2>
+            <form id="signupForm">
+                <label>nombre</label>
+                <input type="text" placeholder="..." id="name" required autofocus>
+                <label>email</label>
+                <input type="email" placeholder="..." id="email" required>
+                <label>contraseña</label>
+                <input type="password" placeholder="..." id="password" required>
+                <input type="submit" onclick=boton2() id="boton2" value="registro">
+                
+            </form>
+        </section>
+        <button onclick="window.modal1.close();">Cerrar</button>
+    </dialog>
+            </div>
         </dialog>
 
 
@@ -46,6 +62,7 @@
     </div>
 
 
+    <script src="lu.js"></script>
 
 </body>
 
