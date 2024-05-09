@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/proyecto-de-galeria-img/iniciar/iniciar.css">
+</head>
+
+<body class="fondo">
+
+    <div class="conteinerIniciarSesion">
+        <div>
+            <h1 class="tex1">BEARTRIX<span style="color: blue;">15</span></h1>
+        </div>
+        <div>
+            <h5 class="tex12">con la confianza de 7,000,000 millones de empresas</h5>
+        </div>
+        <br>
+        <br>
+        
+        <form id="loginForm">
+            <div class="input">
+                <input class="tmñInput" type="text" placeholder="ingrese su cuenta de BEARTRIX15" id="emailLO" required autofocus>
+                <input class="tmñInput" type="password" placeholder="ingrese su contraseña" id="passwordLO" required>
+            </div>
+            <br>
+            <div><input class="TamaDeButton" type="submit" value="Ingresar"></div>
+            <!-- <div class="button"><button class="TamaDeButton">INGRESAR</button></div> -->
+        </form>
+
+
+
+        <br>
+        <br>
+        <div class="AjusteParrafo">
+            <p class="parrafo">¿Aun no tienes cuenta?, toca el boton de registrarse para crear una cuenta</p>
+        </div>
+
+
+
+
+
+        <button class="BotonDeRegitrarse" onclick="window.modal1.showModal();">Registrarse</button>
+        <dialog id="modal1">
+            <section>
+                <h2>registro</h2>
+                <form id="signupForm">
+                    <label>Ingrese un nombre</label>
+                    <input type="text" placeholder="" id="name" required autofocus>
+                    <label>Ingrese un email</label>
+                    <input type="email" placeholder="..." id="email" required>
+                    <label>Ingrese una contraseña</label>
+                    <input type="password" placeholder="..." id="password" required>
+                    <input type="submit" id="boton2" value="registro">
+
+                </form>
+            </section>
+            <button onclick="window.modal1.close();">Cerrar</button>
+        </dialog>
+    </div>
+    </dialog>
+
+
+
+
+    </div>
+
+
+    <script src="/proyecto-de-galeria-img/iniciar/registrarse.js"></script>
+    <script src="/proyecto-de-galeria-img/iniciar/login.js"></script>
+
+</body>
+
+</html>
