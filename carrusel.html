@@ -11,6 +11,19 @@
 <body>
 
 
+        
+    <button onclick="window.modal1.showModal();">Abrir ventana modal</button>
+
+    <dialog id="modal1">
+        <input type="file" id="imgInput" accept="image/png, image/jpg">
+       
+    
+       <button onclick="window.modal1.close();">Cerrar</button>
+    </dialog>
+    
+
+
+
 
     <!-- ----------------------------------------primer carru----------------------------------------------------- -->
     <div class="carrusel">
@@ -24,6 +37,7 @@
             <div id="img">
                 
                 <img class="img" src="img/orcas.webp" alt="imagen 1" loading="lazy">
+               
             </div>
             <div id="texto" class="texto">
                 <h3>proyecto 01</h3>
@@ -125,7 +139,7 @@
         <div class="puntos4" id="puntos4"></div>
     </div>
 
-
+ <div id="display_image"></div>
     <script src="/proyecto-de-galeria-img/carrusel/lu.js"></script>
 </body>
 

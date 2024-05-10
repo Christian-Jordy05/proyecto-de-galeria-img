@@ -1,21 +1,4 @@
-// const signup = document.getElementById("signupForm");
-// signup.addEventListener('submit', (e)=>{
-//     e.preventDefault()
-//     const name = document.getElementById("name").value
-//     const email = document.getElementById("email").value
-//     const password = document.getElementById("password").value
 
-//     const user = JSON.parse(localStorage.getItem("users")) || []
-//     const userRegistro = user.find(user => user.email === email)
-//     if (userRegistro) {
-//         return alert("ya estas registrado puto")
-//     }
-//     user.push({name: name , email: email, password: password})
-//     localStorage.setItem("user" , JSON.stringify(user))
-//     alert("registro exitoso")
-    
-
-// })
 
 const signupForm = document.querySelector('#signupForm')
 signupForm.addEventListener('submit', (e)=>{

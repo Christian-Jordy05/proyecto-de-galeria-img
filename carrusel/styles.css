@@ -465,3 +465,13 @@ body{
     margin-left: 650px;
     margin-top: -160px;
    }
+
+   
+#display_image{
+    width: 275px;
+    height: 511px;
+    border: 1px solid rgb(255, 255, 255);
+  
+    
+
+}
