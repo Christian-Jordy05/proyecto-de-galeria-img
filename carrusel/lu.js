@@ -1,320 +1,48 @@
-let imagenes = [
-    {
+/* este lo sabe cualquiera XD*/
 
+let inputImg = document.getElementById("imgInput");
+let divImg = document.getElementById("ImgContaine");
 
-        "url": "img/orcas.webp",
-        "nombre": "proyecto 01",
-        "descripcion": "este es solo prueba 5"
-    
-        },
-    {
+/* aqui agrega un evento de cambio al elemento de entrada de imagen */
+inputImg.addEventListener("change", function(event) {
+  let files = event.target.files; // aqui obtenemos los archivos seleccionados por el usuario es como contarlos 
 
+  /* comparar sobre cada archivo seleccionado  */
+  for (let i = 0; i < files.length; i++) {
+    let file = files[i];
+    let reader = new FileReader(); // Crear un objeto FileReader ese por el momento se que ayuda para las img no se si sirvera para otras cosas
 
-    "url": "img/lobos.webp",
-    "nombre": "proyecto 02",
-    "descripcion": "este es solo prueba 5"
+    /*Cuando se carga el contenido del archivo*/
+    reader.onload = function(e) {
+      /* Crear una nueva etiqueta img y asignar la URL de datos (base64) como src*/
+      let img = document.createElement("img");
+      img.src = e.target.result;
+      divImg.appendChild(img); /* Agregar la imagen al contenedor*/
 
-    },
-    {
+      /* Guardar cada imagen en el localStorage con una clave única  esto busque de como hacer llaves diferentes*/
+      localStorage.setItem("recent-image-" + Date.now() + i, e.target.result);
+    };
 
+    /* hace que el  contenido lea el archivo como una URL de datos (base64)*/
+    reader.readAsDataURL(file);
+  }
+});
 
-    "url": "img/orangutan1.webp",
-    "nombre": "proyecto 03",
-    "descripcion": "este es solo prueba 4"
-    },
-    {
+/* Cuando el contenido HTML ha sido completamente cargado osea cuando la img ya esta en la img mas que todo es el "DOMcontentLoaded" de eso*/
+document.addEventListener("DOMContentLoaded", () => {
+  /* comparar sobre todas las claves en el localStorage   eso de key lo copie un codigo por hay XD y maso menos no se para que se usa solo maso menos se que se utiliza para guardar temporalmente el nombre de cada clave en el localStore o algo asi*/
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    /* Verificar si la clave corresponde a una imagen guardada recientemente*/
+    if (key.startsWith("recent-image-")) {
+      /* Crear una nueva etiqueta img y asignar la URL de datos (base64) almacenada como src*/
+      let img = document.createElement("img");
+      img.src = localStorage.getItem(key);
 
-    "url": "img/osos.webp",
-    "nombre": "proyecto 04",
-    "descripcion": "este es solo prueba 3"
-
-    },
-    
-    
-]
-
-
-let atras = document.getElementById('atras');
-let adelante = document.getElementById('adelante');
-let imagen = document.getElementById('img');
-let puntos = document.getElementById('puntos');
-let texto = document.getElementById('texto');
-let actual = 0
-
-posicionCarrusel()
-
-atras.addEventListener('click',function(){
-    actual -=1
-    if (actual == -1){
-        actual = imagenes.length -  1
+     
+      
+      divImg.appendChild(img);/* Agregar la imagen al div que lo contiene */
     }
-
-    imagen.innerHTML =  `<img class="img" src="${imagenes[actual].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto.innerHTML = `
-    <h3>${imagenes[actual].nombre}</h3>
-    <p>${imagenes[actual].descripcion}</p>`   
-
-    posicionCarrusel()
-})
-
-
-adelante.addEventListener('click',function(){
-    actual +=1
-    if (actual ==  imagenes.length){
-        actual = 0
-    }
-
-    imagen.innerHTML =  `<img class="img" src="${imagenes[actual].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto.innerHTML = `
-    <h3>${imagenes[actual].nombre}</h3>
-    <p>${imagenes[actual].descripcion}</p>`  
-
-    posicionCarrusel()
-})
-
-
-
-function posicionCarrusel(){
-    puntos.innerHTML = ""
-    for (let i = 0; i < imagenes.length; i++) {
-        if(i == actual){
-            puntos.innerHTML += `<p class= "bold">.</p>`
-        }
-        else{
-            puntos.innerHTML += `<p>.</p>`
-        }
-        
-        
-    }
-}
-
-
-
-/*-------------------------------segundo carru----------------------------------------------------*/
-
-let imagenes2 = [
-    {
-
-
-        "url": "img/",
-        "nombre": "proyecto 01",
-        "descripcion": "este es solo prueba 5"
-    
-        },
-        {
-
-            "url": "img/",
-            "nombre": "proyecto 04",
-            "descripcion": "este es solo prueba 3"
-        
-            },
-]
-
-let atras2 = document.getElementById('atras2');
-let adelante2 = document.getElementById('adelante2');
-let imagen2 = document.getElementById('img2');
-let puntos2 = document.getElementById('puntos2');
-let texto2 = document.getElementById('texto2');
-let actual2 = 0
-
-posicionCarrusel2()
-
-atras2.addEventListener('click',function(){
-    actual2 -=1
-    if (actual2 == -1){
-        actual2 = imagenes2.length -  1
-    }
-
-    imagen2.innerHTML =  `<img class="img" src="${imagenes2[actual2].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto2.innerHTML = `
-    <h3>${imagenes2[actual2].nombre}</h3>
-    <p>${imagenes2[actual2].descripcion}</p>`   
-
-    posicionCarrusel2()
-})
-
-
-adelante2.addEventListener('click',function(){
-    actual2 +=1
-    if (actual2 ==  imagenes2.length){
-        actual2 = 0
-    }
-
-    imagen2.innerHTML =  `<img class="img" src="${imagenes2[actual2].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto2.innerHTML = `
-    <h3>${imagenes2[actual2].nombre}</h3>
-    <p>${imagenes2[actual2].descripcion}</p>`  
-
-    posicionCarrusel2()
-})
-
-
-
-function posicionCarrusel2(){
-    puntos2.innerHTML = ""
-    for (let i = 0; i < imagenes2.length; i++) {
-        if(i == actual2){
-            puntos2.innerHTML += `<p class= "bold2">.</p>`
-        }
-        else{
-            puntos2.innerHTML += `<p>.</p>`
-        }
-        
-        
-    }
-}
-
-
-/*-------------------------------tercer carru----------------------------------------------------*/
-
-let imagenes3 = [
-    {
-
-
-        "url": "img/",
-        "nombre": "proyecto 01",
-        "descripcion": "este es solo prueba 5"
-    
-        },
-        {
-
-            "url": "img/",
-            "nombre": "proyecto 04",
-            "descripcion": "este es solo prueba 3"
-        
-            },
-]
-
-let atras3 = document.getElementById('atras3');
-let adelante3 = document.getElementById('adelante3');
-let imagen3 = document.getElementById('img3');
-let puntos3 = document.getElementById('puntos3');
-let texto3 = document.getElementById('texto3');
-let actual3 = 0
-
-posicionCarrusel3()
-
-atras3.addEventListener('click',function(){
-    actual3 -=1
-    if (actual3 == -1){
-        actual3 = imagenes3.length -  1
-    }
-
-    imagen3.innerHTML =  `<img class="img" src="${imagenes3[actual3].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto3.innerHTML = `
-    <h3>${imagenes2[actual3].nombre}</h3>
-    <p>${imagenes2[actual3].descripcion}</p>`   
-
-    posicionCarrusel3()
-})
-
-
-adelante3.addEventListener('click',function(){
-    actual3 +=1
-    if (actual3 ==  imagenes3.length){
-        actual3 = 0
-    }
-
-    imagen3.innerHTML =  `<img class="img" src="${imagenes3[actual3].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto3.innerHTML = `
-    <h3>${imagenes3[actual3].nombre}</h3>
-    <p>${imagenes3[actual3].descripcion}</p>`  
-
-    posicionCarrusel3()
-})
-
-
-
-function posicionCarrusel3(){
-    puntos3.innerHTML = ""
-    for (let i = 0; i < imagenes3.length; i++) {
-        if(i == actual3){
-            puntos3.innerHTML += `<p class= "bold3">.</p>`
-        }
-        else{
-            puntos3.innerHTML += `<p>.</p>`
-        }
-        
-        
-    }
-}
-
-
-
-/*-------------------------------cuarto carru----------------------------------------------------*/
-
-let imagenes4 = [
-    {
-
-
-        "url": "img/",
-        "nombre": "proyecto 01",
-        "descripcion": "este es solo prueba 5"
-    
-        },
-        {
-
-            "url": "img/",
-            "nombre": "proyecto 04",
-            "descripcion": "este es solo prueba 3"
-        
-            },
-]
-
-let atras4 = document.getElementById('atras4');
-let adelante4 = document.getElementById('adelante4');
-let imagen4 = document.getElementById('img4');
-let puntos4 = document.getElementById('puntos4');
-let texto4 = document.getElementById('texto4');
-let actual4 = 0
-
-posicionCarrusel4()
-
-atras4.addEventListener('click',function(){
-    actual4 -=1
-    if (actual4 == -1){
-        actual4 = imagenes4.length -  1
-    }
-
-    imagen4.innerHTML =  `<img class="img" src="${imagenes3[actual3].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto4.innerHTML = `
-    <h3>${imagenes2[actual4].nombre}</h3>
-    <p>${imagenes2[actual4].descripcion}</p>`   
-
-    posicionCarrusel4()
-})
-
-
-adelante4.addEventListener('click',function(){
-    actual4 +=1
-    if (actual4 ==  imagenes4.length){
-        actual4 = 0
-    }
-
-    imagen4.innerHTML =  `<img class="img" src="${imagenes4[actual4].url}" alt="logo pagina"  loading="lazy"></img>`
-    texto3.innerHTML = `
-    <h3>${imagenes4[actual4].nombre}</h3>
-    <p>${imagenes4[actual4].descripcion}</p>`  
-
-    posicionCarrusel4()
-})
-
-
-
-function posicionCarrusel4(){
-    puntos4.innerHTML = ""
-    for (let i = 0; i < imagenes4.length; i++) {
-        if(i == actual4){
-            puntos4.innerHTML += `<p class= "bold4">.</p>`
-        }
-        else{
-            puntos4.innerHTML += `<p>.</p>`
-        }
-        
-        
-    }
-}
-
-
-
+  }
+});
 
